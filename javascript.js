@@ -113,71 +113,129 @@
 // greet(print);
 
 // callback function
-console.log("starting homework");
+// console.log("starting homework");
 
-setTimeout(() => {
-    console.log("Homework completed");
-        console.log("Dinner is ready"); 
+// setTimeout(() => {
+//     console.log("Homework completed");
+//         console.log("Dinner is ready"); 
 
-    setTimeout(() => {
-        console.log("Dinner done");
-        console.log("getting to go out");
-    
-        setTimeout(() => {
-            console.log("going out");
-        }, 1000);
-
-    
-}, 1500);
-}, 2000);
-
-// callback hell
-// function finishHomework(callback){
-//     console.log("starting homework");
-//     setTimeout(() => {
-//         console.log("Homework completed");
-//         callback();
-//     }   , 2000);    
-
-// }
-
-// function eatDinner(callback){
-//     console.log("Dinner is ready"); 
 //     setTimeout(() => {
 //         console.log("Dinner done");
-//         callback();
-//     }   , 1500);
-// }
+//         console.log("getting to go out");
+    
+//         setTimeout(() => {
+//             console.log("going out");
+//         }, 1000);
 
-// function goOut(){
-//     console.log("getting to go out");
-// }
+    
+// }, 1500);
+// }, 2000);
 
-// finishHomework(()=>{
-//     eatDinner(()=>{     
-//         goOut();
-//     });
+// // callback hell
+// // function finishHomework(callback){
+// //     console.log("starting homework");
+// //     setTimeout(() => {
+// //         console.log("Homework completed");
+// //         callback();
+// //     }   , 2000);    
+
+// // }
+
+// // function eatDinner(callback){
+// //     console.log("Dinner is ready"); 
+// //     setTimeout(() => {
+// //         console.log("Dinner done");
+// //         callback();
+// //     }   , 1500);
+// // }
+
+// // function goOut(){
+// //     console.log("getting to go out");
+// // }
+
+// // finishHomework(()=>{
+// //     eatDinner(()=>{     
+// //         goOut();
+// //     });
+// // });
+
+// const p = new Promise((res,rej)=>{
+//     console.log("going to do homework");
+
+//     setTimeout(() => {
+//         const done=true;
+//         if(done){
+//             res("Success");
+//         }else{
+//             rej("Failure to fetch Data from server");
+        
+//         } 
+//     }, 2000);
 // });
 
-const p = new Promise((res,rej)=>{
-    console.log("going to do homework");
-
-    setTimeout(() => {
-        const done=true;
-        if(done){
-            res("Success");
-        }else{
-            rej("Failure to fetch Data from server");
-        
-        } 
-    }, 2000);
-});
-
-p.then((a)=>{
-    console.log(a);
+// p.then((a)=>{
+//     console.log(a);
     
-}) 
-.catch((err)=>{
-    console.log(err);
-});
+// }) 
+// .catch((err)=>{
+//     console.log(err);
+// }). finally(()=>{
+//     console.log("Homework promise is settled");
+// });
 
+function doHomework(){
+    const p = new Promise((res,rej)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("Homework is done");
+                res("Homework done");
+            }else{
+                rej("Homework not done");
+            }
+        }, 2000);
+    });
+    return p;
+}
+function eatDinner(){
+    const p = new Promise((res,rej)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("Dinner is ready");
+                res("Dinner ready");
+            }else{
+                rej("Dinner not ready");
+            }
+        }, 2000);
+    });
+    return p;
+}
+function goOut(){
+    const p = new Promise((res,rej)=>{
+        setTimeout(() => {
+            let done=true;
+            if(done){
+                console.log("Going out");
+                res("Going out");
+            }else{
+                rej("Not going out");
+            }
+        }, 2000);
+    });
+    return p;
+}
+
+doHomework().then((data)=>{
+    console.log(data);
+    return eatDinner();
+}).then((data)=>{
+    console.log(data);
+    return goOut();
+}).then((data)=>{
+    console.log(data);
+}).catch((err)=>{
+    console.log(err);
+}).finally(()=>{
+    console.log("go to sleep");
+}); 
