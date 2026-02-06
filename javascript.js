@@ -183,59 +183,127 @@
 //     console.log("Homework promise is settled");
 // });
 
-function doHomework(){
-    const p = new Promise((res,rej)=>{
+// function doHomework(){
+//     const p = new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("Homework is done");
+//                 res("Homework done");
+//             }else{
+//                 rej("Homework not done");
+//             }
+//         }, 2000);
+//     });
+//     return p;
+// }
+// function eatDinner(){
+//     const p = new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("Dinner is ready");
+//                 res("Dinner ready");
+//             }else{
+//                 rej("Dinner not ready");
+//             }
+//         }, 2000);
+//     });
+//     return p;
+// }
+// function goOut(){
+//     const p = new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             let done=true;
+//             if(done){
+//                 console.log("Going out");
+//                 res("Going out");
+//             }else{
+//                 rej("Not going out");
+//             }
+//         }, 2000);
+//     });
+//     return p;
+// }
+
+// doHomework().then((data)=>{
+//     console.log(data);
+//     return eatDinner();
+// }).then((data)=>{
+//     console.log(data);
+//     return goOut();
+// }).then((data)=>{
+//     console.log(data);
+// }).catch((err)=>{
+//     console.log(err);
+// }).finally(()=>{
+//     console.log("go to sleep");
+// }); 
+
+// console.log("First Line");
+// setTimeout (()=>{
+//     console.log("Inside settimeout");
+// },0);
+// const p = new Promise((res,rej)=>{
+//     res()
+// });
+// p.then(()=>{
+//     console.log("Inside promise");
+// });
+// p.then(()=>{
+//     console.log("Inside romise 2");
+// });
+// p.then(()=>{
+//     console.log("Inside promise 3");{
+//         console.log("Inside promise 3.1");
+        
+//         setTimeout(()=>{
+//             console.log("Inside settimeout 2"); 
+//     }
+//     ,0);
+// }
+// });
+// p.then(()=>{    
+//     console.log("Inside promise 4");
+//     }
+// );
+
+// console.log("Last Line");
+
+// async and await
+function OrderFood(){
+    return new Promise((res,rej)=>{
         setTimeout(() => {
-            let done=true;
-            if(done){
-                console.log("Homework is done");
-                res("Homework done");
-            }else{
-                rej("Homework not done");
-            }
+            console.log("Food ordered")
+            res()
         }, 2000);
     });
-    return p;
 }
-function eatDinner(){
-    const p = new Promise((res,rej)=>{
+function prepareFood(){
+    return new Promise((res,rej)=>{
         setTimeout(() => {
-            let done=true;
-            if(done){
-                console.log("Dinner is ready");
-                res("Dinner ready");
-            }else{
-                rej("Dinner not ready");
-            }
+            console.log("Food prepared")
+            res()
+            // rej("order cancelled")
         }, 2000);
     });
-    return p;
 }
-function goOut(){
-    const p = new Promise((res,rej)=>{
+function eatFood(){
+    return new Promise((res,rej)=>{
         setTimeout(() => {
-            let done=true;
-            if(done){
-                console.log("Going out");
-                res("Going out");
-            }else{
-                rej("Not going out");
-            }
+            console.log("Food eaten")
+            res()
         }, 2000);
     });
-    return p;
 }
 
-doHomework().then((data)=>{
-    console.log(data);
-    return eatDinner();
-}).then((data)=>{
-    console.log(data);
-    return goOut();
-}).then((data)=>{
-    console.log(data);
-}).catch((err)=>{
-    console.log(err);
-}).finally(()=>{
-    console.log("go to sleep");
-}); 
+
+// OrderFood().then(()=>{  
+    async function foodOrder() {
+        await OrderFood()
+        await  prepareFood()
+        await eatFood()
+console.log("Enjoy your meal");
+    }
+    foodOrder()
+
