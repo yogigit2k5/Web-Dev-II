@@ -271,39 +271,93 @@
 // console.log("Last Line");
 
 // async and await
-function OrderFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(() => {
-            console.log("Food ordered")
-            res()
-        }, 2000);
-    });
-}
-function prepareFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(() => {
-            console.log("Food prepared")
-            res()
-            // rej("order cancelled")
-        }, 2000);
-    });
-}
-function eatFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(() => {
-            console.log("Food eaten")
-            res()
-        }, 2000);
-    });
-}
+// function OrderFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             console.log("Food ordered")
+//             res()
+//         }, 2000);
+//     });
+// }
+// function prepareFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             console.log("Food prepared")
+//             res()
+//             // rej("order cancelled")
+//         }, 2000);
+//     });
+// }
+// function eatFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(() => {
+//             console.log("Food eaten")
+//             res()
+//         }, 2000);
+//     });
+// }
 
 
-// OrderFood().then(()=>{  
-    async function foodOrder() {
-        await OrderFood()
-        await  prepareFood()
-        await eatFood()
-console.log("Enjoy your meal");
-    }
-    foodOrder()
+// // OrderFood().then(()=>{  
+//     async function foodOrder() {
+//         await OrderFood()
+//         await  prepareFood()
+//         await eatFood()
+// console.log("Enjoy your meal");
+//     }
+//     foodOrder()
+
+
+// function* generate(){  
+//     yield 1
+//     yield 2
+//     yield 3
+// }
+// const res=generate();
+// console.log(res.next());
+// console.log(res.next());
+// console.log(res.next());
+
+// function add(a,b,c){ 
+//     return a+b+c;
+// }
+
+// function add(a){
+//     return function(b){
+//         return function(c){
+//             return a+b+c;
+//         }
+// }
+// }
+
+// const add=a=>b=>c=>a+b+c;
+    
+
+// console.log(add(2)(3)(4))
+
+// const first=add(34) 
+// const second=first(23)
+// const third=second(2)
+// console.log(third)
+
+
+
+
+
+// (  ASSIGNMENT 2 HINT)
+// const API_KEY="";
+// const city= document.querySelector("#city");
+// const search= document.querySelector("#search");
+
+// search.addEventListener('click',async(e)=>{
+//     e.preventDefault();
+//     const data=city.value
+//     const response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data}&appid=${API_KEY}`);
+//     const res= await response.json();
+//     console.log(res);
+//     console.log("Temp",(res.main.temp-273.15).toFixed(1),"C");
+//     console.log("weather:",res.weather[0].mian);
+//     console.log("humidity:",res.main.humidity);
+//     console.log("wind:",res.wind.speed);
+// })
 
