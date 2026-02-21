@@ -345,19 +345,19 @@
 
 
 // (  ASSIGNMENT 2 HINT)
-// const API_KEY="";
-// const city= document.querySelector("#city");
-// const search= document.querySelector("#search");
+const API_KEY=7e75caf90525cfec824355a26aeabe3b;
+const city= document.querySelector("#city");
+const search= document.querySelector("#search");
 
-// search.addEventListener('click',async(e)=>{
-//     e.preventDefault();
-//     const data=city.value
-//     const response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data}&appid=${API_KEY}`);
-//     const res= await response.json();
-//     console.log(res);
-//     console.log("Temp",(res.main.temp-273.15).toFixed(1),"C");
-//     console.log("weather:",res.weather[0].mian);
-//     console.log("humidity:",res.main.humidity);
-//     console.log("wind:",res.wind.speed);
-// })
-
+search.addEventListener('click',async(e)=>{
+    e.preventDefault();
+    const data=city.value
+    const response= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data}&appid=${API_KEY}`);
+    const res= await response.json();
+    console.log(weatherData);
+    console.log("Temp",(weatherData.main.temp-273.15).toFixed(1),"C");
+    console.log("weather:",weatherData.weather[0].main);
+    console.log("humidity:",weatherData.main.humidity);
+    console.log("wind:",weatherData.wind.speed);
+})
+// done
