@@ -351,7 +351,7 @@ const search= document.querySelector("#weatherform");
 const conatiner=document.querySelector(".info");
 
 
-lett visitedCities=[]
+let visitedCities=[]
 
 search.addEventListener('submit',async(e)=>{
     e.preventDefault();
@@ -399,3 +399,4 @@ search.addEventListener('click',async(e)=>{
 })
 
 // fetch(`https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=${API_KEY}`)
+// 
