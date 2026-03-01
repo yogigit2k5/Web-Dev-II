@@ -399,4 +399,9 @@ search.addEventListener('click',async(e)=>{
 })
 
 // fetch(`https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=${API_KEY}`)
-// 
+// fetch ("https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=7e75caf90525cfec824355a26aeabe3b")
+// .then((response)=>{
+    // return response.json();
+// })
+// .then((data)=>{  
+    
